@@ -12,7 +12,8 @@
     <bean id="musicBean"
           class="ua.art.springapp.ClassicalMusic"
           init-method="doMyInit"
-          destroy-method="doMyDestroy"> <!-- Scope "prototype" not using destroy-method but uses init-method every time bean is creating -->
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic"> <!-- Scope "prototype" not using destroy-method but uses init-method every time bean is creating -->
     </bean>
 
 
