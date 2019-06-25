@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="JavaFrameworkCollections:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JavaFrameworkCollections_jar</output-path>
+    <root id="archive" name="JavaFrameworkCollections.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../pogoda/src/main/resources/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="JavaFrameworkCollections" />
+    </root>
+  </artifact>
+</component>
