@@ -10,18 +10,20 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicBean"
-          class="ua.art.springapp.ClassicalMusic">
+          class="ua.art.springapp.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"> <!-- Scope "prototype" not using destroy-method but uses init-method every time bean is creating -->
     </bean>
 
 
-    <bean id="musicPlayer"
-        class = "ua.art.springapp.MusicPlayer"
-        scope="prototype"><!-- if singleton, then other input -->
-        <property name="music" ref="musicBean"/>
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
+<!--    <bean id="musicPlayer"-->
+<!--        class = "ua.art.springapp.MusicPlayer"-->
+<!--        scope="prototype">&lt;!&ndash; if singleton, then other input &ndash;&gt;-->
+<!--        <property name="music" ref="musicBean"/>-->
+<!--        <property name="name" value="${musicPlayer.name}"/>-->
+<!--        <property name="volume" value="${musicPlayer.volume}"/>-->
 
-    </bean>
+<!--    </bean>-->
 
 
 </beans>
