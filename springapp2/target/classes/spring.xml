@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <beans  xmlns="http://www.springframework.org/schema/beans"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:context="http://www.springframework.org/schema/context"
@@ -7,32 +8,26 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <import resource="loggers.xml"/>
+
     <bean id="client" class="com.ua.spring.beans.Client">
+        <property name="greeting"
+                  value="Hello there!"/>
         <constructor-arg value="1"/>
         <constructor-arg value="J.Smith"/>
     </bean>
 
-    <bean id="eventLogger" class="com.ua.spring.loggers.ConsoleEventLogger"/>
-
-
-    <bean id="event" class="com.ua.spring.beans.Event" scope="prototype">
-        <constructor-arg>
-            <bean class="java.util.Date"/>
-        </constructor-arg>
-        <constructor-arg>
-            <bean id="dateFormat"
-                  class="java.text.DateFormat"
-                  factory-method="getDateTimeInstance"/>
-        </constructor-arg>
-    </bean>
-
-    <bean id="fileEventLogger" class="com.ua.spring.loggers.FileEventLogger">
-        <constructor-arg value="fileLog.txt"/>
-    </bean>
-
     <bean id="app" class="com.ua.spring.App">
         <constructor-arg ref="client"/>
-        <constructor-arg ref="eventLogger"/>
+        <constructor-arg ref="cacheFileEventLogger"/>
+        <constructor-arg>
+            <map>
+                <entry key="INFO"
+                       value-ref="consoleEventLogger"/>
+                <entry key="ERROR"
+                       value-ref="combinedEventLogger"/>
+            </map>
+        </constructor-arg>
     </bean>
 
 

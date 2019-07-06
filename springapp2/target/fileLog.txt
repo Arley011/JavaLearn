@@ -1,0 +1,1 @@
+Event [id= 1 Message= Some event for 2 Date=30 черв. 2019 20:09:24]Event [id= 2 Message= Some event for 3 Date=30 черв. 2019 20:09:24]
